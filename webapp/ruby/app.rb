@@ -304,9 +304,10 @@ class App < Sinatra::Base
     end
 
     if !avatar_name.nil? && !avatar_data.nil?
-      statement = db.prepare('INSERT INTO image (name, data) VALUES (?, ?)')
-      statement.execute(avatar_name, avatar_data)
-      statement.close
+      File.write(image_path(avatar_name), avatar_data)
+      # statement = db.prepare('INSERT INTO image (name, data) VALUES (?, ?)')
+      # statement.execute(avatar_name, avatar_data)
+      # statement.close
       statement = db.prepare('UPDATE user SET avatar_icon = ? WHERE id = ?')
       statement.execute(avatar_name, user['id'])
       statement.close
@@ -403,5 +404,13 @@ class App < Sinatra::Base
       return 'image/gif'
     end
     ''
+  end
+
+  def public_path
+    File.expand_path('../../public', __FILE__)
+  end
+
+  def image_path(file_name)
+    "#{public_path}/image/#{file_name}"
   end
 end
