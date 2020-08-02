@@ -1,0 +1,37 @@
+require 'mysql2'
+
+# source: https://github.com/reikubonaga/isucon7-qualifier/pull/10/files
+
+def db
+  return @db_client if defined?(@db_client)
+
+  @db_client = Mysql2::Client.new(
+    host: ENV.fetch('ISUBATA_DB_HOST') { 'localhost' },
+    port: ENV.fetch('ISUBATA_DB_PORT') { '3306' },
+    username: ENV.fetch('ISUBATA_DB_USER') { 'root' },
+    password: ENV.fetch('ISUBATA_DB_PASSWORD') { '' },
+    database: 'isubata',
+    encoding: 'utf8mb4'
+  )
+  @db_client.query('SET SESSION sql_mode=\'TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY\'')
+  @db_client
+end
+
+def public_folder
+  File.expand_path('../../public', __FILE__)
+end
+
+def image_path(image)
+  "#{public_folder}/icons/#{image['name']}"
+end
+
+def main
+  images = db.prepare('SELECT id, name, data FROM image').execute
+  images.each do |image|
+    puts "#{image['id']}: Creating... #{image_path(image)}"
+    File.binwrite(image_path(image), image['data'])
+    puts "#{image['id']}: Created!"
+  end
+end
+
+main
