@@ -1,0 +1,17 @@
+# Logfile created on 2020-08-02 11:38:55 +0900 by logger.rb/56815
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Starting the New Relic agent version 6.12.0.367 in "production" environment.
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "production" section of your newrelic.yml.
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Reading configuration from newrelic.yml (/home/isucon/isubata/webapp/ruby)
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Environment: production
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Dispatcher: puma
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Application: isucon7q-20200802
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Deferring startup of agent reporting thread because puma may fork.
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing Sinatra instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing Net instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing deferred Rack::Builder instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing Rack::Builder middleware instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing deferred Puma::Rack::Builder instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Installing Puma::Rack::Builder middleware instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Finished instrumentation
+[2020-08-02 11:38:55 +0900 160-251-6-81 (4874)] INFO : Doing deferred dependency-detection before Rack startup
+[2020-08-02 11:39:30 +0900 160-251-6-81 (4874)] INFO : Reporting to: https://rpm.newrelic.com/accounts/2801138/applications/850188922
