@@ -22,7 +22,7 @@ def public_folder
 end
 
 def image_path(image)
-  "#{public_folder}/image/#{image['name']}"
+  "#{public_folder}/icons/#{image['name']}"
 end
 
 def main
