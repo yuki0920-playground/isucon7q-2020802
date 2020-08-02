@@ -304,7 +304,7 @@ class App < Sinatra::Base
     end
 
     if !avatar_name.nil? && !avatar_data.nil?
-      File.binwrite(image_path(avatar_name), avatar_data)
+      File.binwrite(image_path(avatar_name), avatar_data) unless File.exist?(image_path(avatar_name))
       # statement = db.prepare('INSERT INTO image (name, data) VALUES (?, ?)')
       # statement.execute(avatar_name, avatar_data)
       # statement.close
